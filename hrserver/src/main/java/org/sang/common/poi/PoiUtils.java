@@ -18,9 +18,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by sang on 2018/1/16.
- */
 public class PoiUtils {
 
     public static ResponseEntity<byte[]> exportEmp2Excel(List<Employee> emps) {
@@ -36,7 +33,7 @@ public class PoiUtils {
             //3.1文档类别
             dsi.setCategory("员工信息");
             //3.2设置文档管理员
-            dsi.setManager("江南一点雨");
+            dsi.setManager("levine");
             //3.3设置组织机构
             dsi.setCompany("XXX集团");
             //4.获取摘要信息并配置

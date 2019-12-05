@@ -8,14 +8,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
- * Created by sang on 2018/1/11.
- */
+
 @Service
 @Transactional
 public class JobLevelService {
     @Autowired
     JobLevelMapper jobLevelMapper;
+
 
     public int addJobLevel(JobLevel jobLevel) {
         if (jobLevelMapper.getJobLevelByName(jobLevel.getName()) != null) {

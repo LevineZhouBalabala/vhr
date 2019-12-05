@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by sang on 2018/1/2.
- */
+
 @Component
 public class CustomExceptionResolver implements HandlerExceptionResolver {
     @Override

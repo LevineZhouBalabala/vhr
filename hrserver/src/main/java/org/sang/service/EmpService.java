@@ -14,9 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by sang on 2018/1/12.
- */
+
 @Service
 @Transactional
 public class EmpService {
@@ -42,6 +40,7 @@ public class EmpService {
         employee.setContractTerm(Double.parseDouble(decimalFormat.format(contractTerm / 12)));
         return empMapper.addEmp(employee);
     }
+
 
     public Long getMaxWorkID() {
         Long maxWorkID = empMapper.getMaxWorkID();

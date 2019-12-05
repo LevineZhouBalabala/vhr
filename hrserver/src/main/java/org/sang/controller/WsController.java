@@ -9,10 +9,7 @@ import org.springframework.stereotype.Controller;
 
 import java.security.Principal;
 
-/**
- * WebSocket 消息处理类
- * Created by sang on 2018/1/27.
- */
+
 @Controller
 public class WsController {
     @Autowired
@@ -25,7 +22,7 @@ public class WsController {
         messagingTemplate.convertAndSendToUser(destUser, "/queue/chat", new ChatResp(message, principal.getName()));
     }
 
-    @MessageMapping("/ws/nf")
+    @MessageMapping(" ")
     @SendTo("/topic/nf")
     public String handleNF() {
         return "系统消息";

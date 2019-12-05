@@ -39,6 +39,12 @@ public class ChatController {
         return RespBean.error("发送失败!");
     }
 
+    /**
+     * 获取消息内容
+     * @param page
+     * @param size
+     * @return
+     */
     @RequestMapping("/sysmsgs")
     public List<SysMsg> getSysMsg(@RequestParam(value = "page", defaultValue = "1") Integer page, @RequestParam(value = "size", defaultValue = "10") Integer size) {
         return sysMsgService.getSysMsgByPage(page, size);
@@ -48,9 +54,9 @@ public class ChatController {
     public RespBean markRead(Long flag) {
         if (sysMsgService.markRead(flag)) {
             if (flag == -1) {
-                return RespBean.ok("multiple");
+                return RespBean.ok("全部标记已读");
             } else {
-                return RespBean.ok("single");
+                return RespBean.ok("消息已读");
             }
         } else {
             if (flag == -1) {

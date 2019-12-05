@@ -22,9 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 
-/**
- * Created by sang on 2018/1/12.
- */
+
 @RestController
 @RequestMapping("/employee/basic")
 public class EmpBasicController {
@@ -75,7 +73,7 @@ public class EmpBasicController {
                     javaMailSender, templateEngine,emailAddress));
             return RespBean.ok("添加成功!");
         }
-        return RespBean.error("添加失败!");
+        return RespBean.error("添加失败");
     }
 
     @RequestMapping(value = "/emp", method = RequestMethod.PUT)
@@ -94,10 +92,24 @@ public class EmpBasicController {
         return RespBean.error("删除失败!");
     }
 
+    /**
+     * 职位表分页
+     * @param page
+     * @param size
+     * @param keywords
+     * @param politicId
+     * @param nationId
+     * @param posId
+     * @param jobLevelId
+     * @param engageForm
+     * @param departmentId
+     * @param beginDateScope
+     * @return
+     */
     @RequestMapping(value = "/emp", method = RequestMethod.GET)
     public Map<String, Object> getEmployeeByPage(
             @RequestParam(defaultValue = "1") Integer page,
-            @RequestParam(defaultValue = "10") Integer size,
+            @RequestParam(defaultValue = "5") Integer size,
             @RequestParam(defaultValue = "") String keywords,
             Long politicId, Long nationId, Long posId,
             Long jobLevelId, String engageForm,
@@ -113,11 +125,20 @@ public class EmpBasicController {
         return map;
     }
 
+    /**
+     * 导出Excel表格
+     * @return
+     */
     @RequestMapping(value = "/exportEmp", method = RequestMethod.GET)
     public ResponseEntity<byte[]> exportEmp() {
         return PoiUtils.exportEmp2Excel(empService.getAllEmployees());
     }
 
+    /**
+     * 导入
+     * @param file
+     * @return
+     */
     @RequestMapping(value = "/importEmp", method = RequestMethod.POST)
     public RespBean importEmp(MultipartFile file) {
         List<Employee> emps = PoiUtils.importEmp2List(file,

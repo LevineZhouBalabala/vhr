@@ -29,4 +29,6 @@ public interface HrMapper {
     int deleteHr(Long hrId);
 
     List<Hr> getAllHr(@Param("currentId") Long currentId);
+
+
 }
