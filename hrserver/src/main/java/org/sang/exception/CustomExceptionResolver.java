@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * 自定义操作异常类
+ */
 @Component
 public class CustomExceptionResolver implements HandlerExceptionResolver {
     @Override

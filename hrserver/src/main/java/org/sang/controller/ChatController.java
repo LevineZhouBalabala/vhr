@@ -26,6 +26,10 @@ public class ChatController {
     @Autowired
     SysMsgService sysMsgService;
 
+    /**
+     * 获取管理信息
+     * @return
+     */
     @RequestMapping(value = "/hrs", method = RequestMethod.GET)
     public List<Hr> getAllHr() {
         return hrService.getAllHrExceptAdmin();

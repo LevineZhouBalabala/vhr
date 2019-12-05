@@ -4,8 +4,8 @@ public class SysMsg {
     private Long id;
     private Long mid;
     private Integer type;
-    private Long hrid;
-    private Integer state;
+    private Long hrid;          //消息接收方
+    private Integer state;     //消息是否已读
     private MsgContent msgContent;
 
     public MsgContent getMsgContent() {
